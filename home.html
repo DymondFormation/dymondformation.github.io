@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:#2F4F4F;">
+<style>
+h1 {color:#F8F8FF; text-align:center; font-family:sans-serif;}
+h2 {color:#F8F8FF;text-align:left; font-family:sans-serif;}
+a {color:#F8F8FF; font-family:sans-serif;}
+p {color:#DCDCDC; font-family:sans-serif;}
+li {color:#DCDCDC; font-family:sans-serif;}
+</style>
+<h1><span>&#9830; </span>The Dymond Formation<span> &#9830;</span></h1>
+<p>After learning how to parse, shape, and compile Statsbomb event data into my preferred formats, I started producing pitch graphics with the help of the 'mplsoccer' library in Python. 
+Once I'd become comfortable creating shot maps, pass maps, aggregating pressure events and much more, I thought: "wouldn't it be great if I could imitate a sort of 'player report'?" 
+A dashboard, if you will...</p>
+<h2>The Invincibles Dashboard - <a href = "https://dymondformation.github.io">Click Here To View!</h2></a>
+<p>So, using the 'panel' library in Python, I've cobbled together a few of my earlier bits of work and stuck in a drop-down so you can choose whose dashboard you want
+ to see! I've written a little bit of code to clean up the player names, using the Nickname where possible. Though this isn't a huge problem in early 2000's Premier League football, 
+ I can reuse it when looking at a certain Lionel Andrés Messi Cuccittini's La Liga matches! Anyway, back to the Invincibles...<br><br>
+ I've used <a href="https://github.com/statsbomb/open-data">Statsbomb's open data</a> to look specifically at 
+ Shots (excl. penalties), Key Passes, and Pressures for all Arsenal players with 5+ appearances in the 32 available matches of the 38 game season. As it turns out, only the 
+ legendary Justin Hoyte (no?) didn't make the cut.. I've heard that somewhere before. Someone who did make the cut, however, was true Arsenal legend, Thierry Henry, so I've set him as 
+ the default value in my Player dropdown to give you something to look at right off the bat!<br><br>
+ Once you have a Player selected, you'll be able to see all 3 of their graphics, with their Pressure Map on the right hand side. Use the 'Pressing Breakdown' drop-down to choose the aggregation method. With 20 players and 3 possible Pressing Breakdown options, there are a total 
+ of 60 dashboards pre-loaded for your viewing. Things to look out for:
+ <ul><li>Robert Pires was absolutely clinical coming in off the left side, more than doubling his xG for the 32 matches</li>
+ <li>Dennis Bergkamp made 35 passes that led to Arsenal shots, many of which where vertical from central areas. He turned 35 at the end of the season, but still played a key part 
+ in Arsenal's season</li>
+ <li>Patrick Vieira & Gilberto Silva's Pressure Grid make for interesting viewing, with Gilberto Silva not pressing as high despite sometimes being utilised in Right Mid as well as his 
+ natural position in Right Defensive Midfield. Patrick Vieira dominated in the Left Defensive Midfield position, covering more of the pitch than Gilberto Silva, often pressing a little higher up</li>
+</p>
+<img src="henry_pires_trophy.jpg" alt="Image of Henry and Pires posing with the PL trophy">
+</body>
+</html>

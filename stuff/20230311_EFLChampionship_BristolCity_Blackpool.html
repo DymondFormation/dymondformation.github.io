@@ -1,0 +1,6128 @@
+ <!DOCTYPE html>
+<html>
+ <head>
+    <title>Bristol City vs Blackpool</title>
+ </head>
+ <body style="background-color:#2F4F4F;">  
+  
+<h1>Player Stats Breakdown</h1>
+
+<select id="table-filter" style="font-size: 16px; padding: 8px">
+        <option value="BristolCityteamFull">BristolCityteamFull</option>
+        <option value="BristolCityper90">BristolCityper90</option>
+        <option value="BristolCitylast5">BristolCitylast5</option>
+        <option value="BristolCitylast10">BristolCitylast10</option>
+        <option value="BlackpoolteamFull">BlackpoolteamFull</option>
+        <option value="Blackpoolper90">Blackpoolper90</option>
+        <option value="Blackpoollast5">Blackpoollast5</option>
+        <option value="Blackpoollast10">Blackpoollast10</option>
+    </select>
+
+<script>
+
+			
+	 // Select all tables on the page
+	  var tables = document.querySelectorAll("table");
+
+	  // Iterate over the tables and add the event listeners and call the sorting function
+	  tables.forEach(function(table) {
+		// Add an event listener to the table header cells that will call the sorting function when clicked
+		table.querySelectorAll("th").forEach(function(th) {
+		  th.addEventListener("click", function() {
+			sortTable(table, th.cellIndex);
+		  });
+		});
+	  });
+  
+	var sortAscending = true; // Track the sort order (ascending by default)
+	
+	function sortTable(table, column) {
+	
+	  // Get the rows of the table
+	  var rows = table.querySelectorAll("tbody tr");
+
+	  // Convert the rows to an array so they can be sorted
+	  var array = Array.prototype.slice.call(rows);
+
+	  // Sort the rows based on the values in the specified column
+	  array.sort(function(a, b) {
+		// Get the values to compare
+		var valueA = parseFloat(a.querySelector("td:nth-child(" + (column + 1) + ")").innerHTML);
+		var valueB = parseFloat(b.querySelector("td:nth-child(" + (column + 1) + ")").innerHTML);
+
+		// Compare the values and return -1, 0, or 1 to indicate the sort order
+		if (sortAscending) {
+		  if (valueA < valueB) {
+			return -1;
+		  } else if (valueA > valueB) {
+			return 1;
+		  } else {
+			return 0;
+		  }
+		} else {
+		  if (valueA > valueB) {
+			return -1;
+		  } else if (valueA < valueB) {
+			return 1;
+		  } else {
+			return 0;
+		  }
+		}
+	  });
+
+	  // Append the rows back to the table in the sorted order
+	  array.forEach(function(row) {
+		table.querySelector("tbody").appendChild(row);
+	  });
+
+	  // Toggle the sort order for the next time the function is called
+	  sortAscending = !sortAscending;
+	}
+
+
+</script>
+
+<div class="table-container" style="overflow-x: scroll; overflow-y: scroll; width: auto; height: auto; max-height: 800px;">
+
+
+                <table border="1" class="dataframe" id="BristolCityteamFull" data-table-id="BristolCityteamFull" data-team-name="BristolCity">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(BristolCityteamFull, 0)">Player</th>
+      <th onclick="sortTable(BristolCityteamFull, 1)">#</th>
+      <th onclick="sortTable(BristolCityteamFull, 2)">Nation</th>
+      <th onclick="sortTable(BristolCityteamFull, 3)">Min</th>
+      <th onclick="sortTable(BristolCityteamFull, 4)">Gls</th>
+      <th onclick="sortTable(BristolCityteamFull, 5)">Ast</th>
+      <th onclick="sortTable(BristolCityteamFull, 6)">PK</th>
+      <th onclick="sortTable(BristolCityteamFull, 7)">PKatt</th>
+      <th onclick="sortTable(BristolCityteamFull, 8)">Sh</th>
+      <th onclick="sortTable(BristolCityteamFull, 9)">SoT</th>
+      <th onclick="sortTable(BristolCityteamFull, 10)">CrdY</th>
+      <th onclick="sortTable(BristolCityteamFull, 11)">CrdR</th>
+      <th onclick="sortTable(BristolCityteamFull, 12)">Fls</th>
+      <th onclick="sortTable(BristolCityteamFull, 13)">Tkl</th>
+      <th onclick="sortTable(BristolCityteamFull, 14)">Fld</th>
+      <th onclick="sortTable(BristolCityteamFull, 15)">xG</th>
+      <th onclick="sortTable(BristolCityteamFull, 16)">npxG</th>
+      <th onclick="sortTable(BristolCityteamFull, 17)">xAG</th>
+      <th onclick="sortTable(BristolCityteamFull, 18)">xA</th>
+      <th onclick="sortTable(BristolCityteamFull, 19)">SCA</th>
+      <th onclick="sortTable(BristolCityteamFull, 20)">GCA</th>
+      <th onclick="sortTable(BristolCityteamFull, 21)">Touches</th>
+      <th onclick="sortTable(BristolCityteamFull, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(BristolCityteamFull, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(BristolCityteamFull, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(BristolCityteamFull, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alex Scott</td>
+      <td>7</td>
+      <td>ENG</td>
+      <td>2828</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27</td>
+      <td>7</td>
+      <td>9</td>
+      <td>0</td>
+      <td>46</td>
+      <td>75</td>
+      <td>77</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>3.2</td>
+      <td>3.3</td>
+      <td>74</td>
+      <td>7</td>
+      <td>1585</td>
+      <td>519</td>
+      <td>42</td>
+      <td>929</td>
+      <td>1223</td>
+    </tr>
+    <tr>
+      <td>Andreas Weimann</td>
+      <td>14</td>
+      <td>AUT</td>
+      <td>2229</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>29</td>
+      <td>8</td>
+      <td>5</td>
+      <td>0</td>
+      <td>16</td>
+      <td>11</td>
+      <td>14</td>
+      <td>4.9</td>
+      <td>4.9</td>
+      <td>3.6</td>
+      <td>3.0</td>
+      <td>43</td>
+      <td>8</td>
+      <td>881</td>
+      <td>359</td>
+      <td>78</td>
+      <td>479</td>
+      <td>698</td>
+    </tr>
+    <tr>
+      <td>Andy King</td>
+      <td>10</td>
+      <td>WAL</td>
+      <td>657</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>12</td>
+      <td>5</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>410</td>
+      <td>36</td>
+      <td>12</td>
+      <td>259</td>
+      <td>343</td>
+    </tr>
+    <tr>
+      <td>Anis Mehmeti</td>
+      <td>11</td>
+      <td>ALB</td>
+      <td>386</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>0.5</td>
+      <td>1.1</td>
+      <td>12</td>
+      <td>2</td>
+      <td>161</td>
+      <td>95</td>
+      <td>23</td>
+      <td>63</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>Antoine Semenyo</td>
+      <td>11</td>
+      <td>GHA</td>
+      <td>1249</td>
+      <td>6</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>38</td>
+      <td>16</td>
+      <td>5</td>
+      <td>0</td>
+      <td>28</td>
+      <td>8</td>
+      <td>22</td>
+      <td>4.9</td>
+      <td>4.9</td>
+      <td>1.8</td>
+      <td>1.6</td>
+      <td>26</td>
+      <td>3</td>
+      <td>503</td>
+      <td>288</td>
+      <td>87</td>
+      <td>204</td>
+      <td>311</td>
+    </tr>
+    <tr>
+      <td>Cameron Pring</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>1683</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>18</td>
+      <td>56</td>
+      <td>25</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>2.9</td>
+      <td>2.3</td>
+      <td>26</td>
+      <td>7</td>
+      <td>1208</td>
+      <td>259</td>
+      <td>27</td>
+      <td>627</td>
+      <td>945</td>
+    </tr>
+    <tr>
+      <td>Chris Martin</td>
+      <td>9</td>
+      <td>SCO</td>
+      <td>511</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7</td>
+      <td>1</td>
+      <td>222</td>
+      <td>85</td>
+      <td>19</td>
+      <td>117</td>
+      <td>170</td>
+    </tr>
+    <tr>
+      <td>Daniel Bentley</td>
+      <td>1</td>
+      <td>ENG</td>
+      <td>1170</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>464</td>
+      <td>0</td>
+      <td>0</td>
+      <td>233</td>
+      <td>432</td>
+    </tr>
+    <tr>
+      <td>Dylan Kadji</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19</td>
+      <td>4</td>
+      <td>1</td>
+      <td>9</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>George Tanner</td>
+      <td>19</td>
+      <td>ENG</td>
+      <td>1231</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11</td>
+      <td>25</td>
+      <td>13</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.7</td>
+      <td>0.5</td>
+      <td>13</td>
+      <td>0</td>
+      <td>840</td>
+      <td>203</td>
+      <td>8</td>
+      <td>506</td>
+      <td>730</td>
+    </tr>
+    <tr>
+      <td>Han-Noah Massengo</td>
+      <td>30</td>
+      <td>FRA</td>
+      <td>493</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>14</td>
+      <td>9</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>271</td>
+      <td>60</td>
+      <td>5</td>
+      <td>165</td>
+      <td>208</td>
+    </tr>
+    <tr>
+      <td>Harry Cornick</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>211</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>104</td>
+      <td>44</td>
+      <td>5</td>
+      <td>37</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Jay Dasilva</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>1891</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10</td>
+      <td>21</td>
+      <td>6</td>
+      <td>0.9</td>
+      <td>0.9</td>
+      <td>2.1</td>
+      <td>2.4</td>
+      <td>51</td>
+      <td>7</td>
+      <td>1083</td>
+      <td>413</td>
+      <td>42</td>
+      <td>704</td>
+      <td>932</td>
+    </tr>
+    <tr>
+      <td>Joe Williams</td>
+      <td>8</td>
+      <td>ENG</td>
+      <td>1876</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>17</td>
+      <td>4</td>
+      <td>9</td>
+      <td>0</td>
+      <td>29</td>
+      <td>64</td>
+      <td>18</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>2.3</td>
+      <td>2.4</td>
+      <td>41</td>
+      <td>2</td>
+      <td>1324</td>
+      <td>262</td>
+      <td>13</td>
+      <td>802</td>
+      <td>1059</td>
+    </tr>
+    <tr>
+      <td>Joseph Low</td>
+      <td>32</td>
+      <td>WAL</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Kal Naismith</td>
+      <td>4</td>
+      <td>SCO</td>
+      <td>1683</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>46</td>
+      <td>23</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>1.8</td>
+      <td>1.6</td>
+      <td>39</td>
+      <td>6</td>
+      <td>1460</td>
+      <td>151</td>
+      <td>13</td>
+      <td>860</td>
+      <td>1255</td>
+    </tr>
+    <tr>
+      <td>Kane Wilson</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>77</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.4</td>
+      <td>0.2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>68</td>
+      <td>30</td>
+      <td>3</td>
+      <td>33</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Mark Sykes</td>
+      <td>17</td>
+      <td>IRL</td>
+      <td>2070</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>10</td>
+      <td>3</td>
+      <td>1</td>
+      <td>17</td>
+      <td>46</td>
+      <td>37</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.3</td>
+      <td>2.2</td>
+      <td>48</td>
+      <td>4</td>
+      <td>1232</td>
+      <td>458</td>
+      <td>61</td>
+      <td>655</td>
+      <td>970</td>
+    </tr>
+    <tr>
+      <td>Matty James</td>
+      <td>6</td>
+      <td>ENG</td>
+      <td>2251</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>25</td>
+      <td>54</td>
+      <td>10</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>1.0</td>
+      <td>1.6</td>
+      <td>33</td>
+      <td>3</td>
+      <td>1183</td>
+      <td>207</td>
+      <td>8</td>
+      <td>802</td>
+      <td>1015</td>
+    </tr>
+    <tr>
+      <td>Max O'Leary</td>
+      <td>12</td>
+      <td>IRL</td>
+      <td>1980</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>877</td>
+      <td>1</td>
+      <td>0</td>
+      <td>491</td>
+      <td>829</td>
+    </tr>
+    <tr>
+      <td>Nahki Wells</td>
+      <td>21</td>
+      <td>BER</td>
+      <td>2167</td>
+      <td>11</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>59</td>
+      <td>20</td>
+      <td>3</td>
+      <td>0</td>
+      <td>33</td>
+      <td>32</td>
+      <td>26</td>
+      <td>11.1</td>
+      <td>9.5</td>
+      <td>4.3</td>
+      <td>4.3</td>
+      <td>58</td>
+      <td>6</td>
+      <td>807</td>
+      <td>416</td>
+      <td>107</td>
+      <td>331</td>
+      <td>502</td>
+    </tr>
+    <tr>
+      <td>Robert Atkinson</td>
+      <td>5</td>
+      <td>ENG</td>
+      <td>2141</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>6</td>
+      <td>3</td>
+      <td>0</td>
+      <td>19</td>
+      <td>42</td>
+      <td>25</td>
+      <td>2.3</td>
+      <td>2.3</td>
+      <td>0.5</td>
+      <td>0.3</td>
+      <td>23</td>
+      <td>4</td>
+      <td>1340</td>
+      <td>120</td>
+      <td>31</td>
+      <td>816</td>
+      <td>1089</td>
+    </tr>
+    <tr>
+      <td>Sam Bell</td>
+      <td>20</td>
+      <td>ENG</td>
+      <td>506</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>165</td>
+      <td>85</td>
+      <td>19</td>
+      <td>58</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>Timm Klose</td>
+      <td>25</td>
+      <td>SUI</td>
+      <td>485</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>311</td>
+      <td>15</td>
+      <td>11</td>
+      <td>172</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>Tommy Conway</td>
+      <td>15</td>
+      <td></td>
+      <td>1499</td>
+      <td>6</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33</td>
+      <td>15</td>
+      <td>1</td>
+      <td>0</td>
+      <td>20</td>
+      <td>13</td>
+      <td>22</td>
+      <td>5.4</td>
+      <td>5.4</td>
+      <td>2.7</td>
+      <td>2.1</td>
+      <td>35</td>
+      <td>4</td>
+      <td>420</td>
+      <td>256</td>
+      <td>69</td>
+      <td>215</td>
+      <td>276</td>
+    </tr>
+    <tr>
+      <td>Tomáš Kalas</td>
+      <td>22</td>
+      <td>CZE</td>
+      <td>291</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>213</td>
+      <td>5</td>
+      <td>2</td>
+      <td>156</td>
+      <td>184</td>
+    </tr>
+    <tr>
+      <td>Zak Vyner</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>3025</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>2</td>
+      <td>6</td>
+      <td>0</td>
+      <td>25</td>
+      <td>47</td>
+      <td>4</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>1.1</td>
+      <td>0.6</td>
+      <td>26</td>
+      <td>4</td>
+      <td>2166</td>
+      <td>99</td>
+      <td>14</td>
+      <td>1389</td>
+      <td>1850</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="BristolCityper90" data-table-id="BristolCityper90" data-team-name="BristolCity">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(BristolCityper90, 0)">Player</th>
+      <th onclick="sortTable(BristolCityper90, 1)">#</th>
+      <th onclick="sortTable(BristolCityper90, 2)">Nation</th>
+      <th onclick="sortTable(BristolCityper90, 3)">90s</th>
+      <th onclick="sortTable(BristolCityper90, 4)">Gls</th>
+      <th onclick="sortTable(BristolCityper90, 5)">Ast</th>
+      <th onclick="sortTable(BristolCityper90, 6)">PK</th>
+      <th onclick="sortTable(BristolCityper90, 7)">PKatt</th>
+      <th onclick="sortTable(BristolCityper90, 8)">Sh</th>
+      <th onclick="sortTable(BristolCityper90, 9)">SoT</th>
+      <th onclick="sortTable(BristolCityper90, 10)">CrdY</th>
+      <th onclick="sortTable(BristolCityper90, 11)">CrdR</th>
+      <th onclick="sortTable(BristolCityper90, 12)">Fls</th>
+      <th onclick="sortTable(BristolCityper90, 13)">Tkl</th>
+      <th onclick="sortTable(BristolCityper90, 14)">Fld</th>
+      <th onclick="sortTable(BristolCityper90, 15)">xG</th>
+      <th onclick="sortTable(BristolCityper90, 16)">npxG</th>
+      <th onclick="sortTable(BristolCityper90, 17)">xAG</th>
+      <th onclick="sortTable(BristolCityper90, 18)">xA</th>
+      <th onclick="sortTable(BristolCityper90, 19)">SCA</th>
+      <th onclick="sortTable(BristolCityper90, 20)">GCA</th>
+      <th onclick="sortTable(BristolCityper90, 21)">Touches</th>
+      <th onclick="sortTable(BristolCityper90, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(BristolCityper90, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(BristolCityper90, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(BristolCityper90, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alex Scott</td>
+      <td>7</td>
+      <td>ENG</td>
+      <td>31.42</td>
+      <td>0.00</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.86</td>
+      <td>0.22</td>
+      <td>0.29</td>
+      <td>0.00</td>
+      <td>1.46</td>
+      <td>2.39</td>
+      <td>2.45</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.10</td>
+      <td>0.11</td>
+      <td>2.36</td>
+      <td>0.22</td>
+      <td>50.44</td>
+      <td>16.52</td>
+      <td>1.34</td>
+      <td>29.57</td>
+      <td>38.92</td>
+    </tr>
+    <tr>
+      <td>Andreas Weimann</td>
+      <td>14</td>
+      <td>AUT</td>
+      <td>24.77</td>
+      <td>0.16</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.17</td>
+      <td>0.32</td>
+      <td>0.20</td>
+      <td>0.00</td>
+      <td>0.65</td>
+      <td>0.44</td>
+      <td>0.57</td>
+      <td>0.20</td>
+      <td>0.20</td>
+      <td>0.15</td>
+      <td>0.12</td>
+      <td>1.74</td>
+      <td>0.32</td>
+      <td>35.57</td>
+      <td>14.50</td>
+      <td>3.15</td>
+      <td>19.34</td>
+      <td>28.18</td>
+    </tr>
+    <tr>
+      <td>Andy King</td>
+      <td>10</td>
+      <td>WAL</td>
+      <td>7.30</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.55</td>
+      <td>0.00</td>
+      <td>0.27</td>
+      <td>0.00</td>
+      <td>0.55</td>
+      <td>1.64</td>
+      <td>0.68</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.82</td>
+      <td>0.00</td>
+      <td>56.16</td>
+      <td>4.93</td>
+      <td>1.64</td>
+      <td>35.48</td>
+      <td>46.99</td>
+    </tr>
+    <tr>
+      <td>Anis Mehmeti</td>
+      <td>11</td>
+      <td>ALB</td>
+      <td>4.29</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.73</td>
+      <td>0.70</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.33</td>
+      <td>0.93</td>
+      <td>0.93</td>
+      <td>0.28</td>
+      <td>0.28</td>
+      <td>0.12</td>
+      <td>0.26</td>
+      <td>2.80</td>
+      <td>0.47</td>
+      <td>37.54</td>
+      <td>22.15</td>
+      <td>5.36</td>
+      <td>14.69</td>
+      <td>21.22</td>
+    </tr>
+    <tr>
+      <td>Antoine Semenyo</td>
+      <td>11</td>
+      <td>GHA</td>
+      <td>13.88</td>
+      <td>0.43</td>
+      <td>0.22</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.74</td>
+      <td>1.15</td>
+      <td>0.36</td>
+      <td>0.00</td>
+      <td>2.02</td>
+      <td>0.58</td>
+      <td>1.59</td>
+      <td>0.35</td>
+      <td>0.35</td>
+      <td>0.13</td>
+      <td>0.12</td>
+      <td>1.87</td>
+      <td>0.22</td>
+      <td>36.24</td>
+      <td>20.75</td>
+      <td>6.27</td>
+      <td>14.70</td>
+      <td>22.41</td>
+    </tr>
+    <tr>
+      <td>Cameron Pring</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>18.70</td>
+      <td>0.05</td>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.53</td>
+      <td>0.16</td>
+      <td>0.32</td>
+      <td>0.00</td>
+      <td>0.96</td>
+      <td>2.99</td>
+      <td>1.34</td>
+      <td>0.07</td>
+      <td>0.07</td>
+      <td>0.16</td>
+      <td>0.12</td>
+      <td>1.39</td>
+      <td>0.37</td>
+      <td>64.60</td>
+      <td>13.85</td>
+      <td>1.44</td>
+      <td>33.53</td>
+      <td>50.53</td>
+    </tr>
+    <tr>
+      <td>Chris Martin</td>
+      <td>9</td>
+      <td>SCO</td>
+      <td>5.68</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.41</td>
+      <td>0.35</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.88</td>
+      <td>0.70</td>
+      <td>1.06</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.23</td>
+      <td>0.18</td>
+      <td>39.10</td>
+      <td>14.97</td>
+      <td>3.35</td>
+      <td>20.61</td>
+      <td>29.94</td>
+    </tr>
+    <tr>
+      <td>Daniel Bentley</td>
+      <td>1</td>
+      <td>ENG</td>
+      <td>13.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.15</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>35.69</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>17.92</td>
+      <td>33.23</td>
+    </tr>
+    <tr>
+      <td>Dylan Kadji</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>0.30</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.33</td>
+      <td>0.00</td>
+      <td>3.33</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>63.33</td>
+      <td>13.33</td>
+      <td>3.33</td>
+      <td>30.00</td>
+      <td>40.00</td>
+    </tr>
+    <tr>
+      <td>George Tanner</td>
+      <td>19</td>
+      <td>ENG</td>
+      <td>13.68</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.51</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.07</td>
+      <td>0.80</td>
+      <td>1.83</td>
+      <td>0.95</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.05</td>
+      <td>0.04</td>
+      <td>0.95</td>
+      <td>0.00</td>
+      <td>61.41</td>
+      <td>14.84</td>
+      <td>0.58</td>
+      <td>36.99</td>
+      <td>53.37</td>
+    </tr>
+    <tr>
+      <td>Han-Noah Massengo</td>
+      <td>30</td>
+      <td>FRA</td>
+      <td>5.48</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.46</td>
+      <td>0.00</td>
+      <td>0.37</td>
+      <td>0.00</td>
+      <td>0.91</td>
+      <td>2.56</td>
+      <td>1.64</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.10</td>
+      <td>0.00</td>
+      <td>49.47</td>
+      <td>10.95</td>
+      <td>0.91</td>
+      <td>30.12</td>
+      <td>37.97</td>
+    </tr>
+    <tr>
+      <td>Harry Cornick</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>2.34</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.43</td>
+      <td>0.00</td>
+      <td>1.71</td>
+      <td>0.85</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.85</td>
+      <td>0.00</td>
+      <td>44.36</td>
+      <td>18.77</td>
+      <td>2.13</td>
+      <td>15.78</td>
+      <td>29.00</td>
+    </tr>
+    <tr>
+      <td>Jay Dasilva</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>21.01</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.57</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.48</td>
+      <td>1.00</td>
+      <td>0.29</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.10</td>
+      <td>0.11</td>
+      <td>2.43</td>
+      <td>0.33</td>
+      <td>51.54</td>
+      <td>19.66</td>
+      <td>2.00</td>
+      <td>33.51</td>
+      <td>44.36</td>
+    </tr>
+    <tr>
+      <td>Joe Williams</td>
+      <td>8</td>
+      <td>ENG</td>
+      <td>20.84</td>
+      <td>0.10</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.82</td>
+      <td>0.19</td>
+      <td>0.43</td>
+      <td>0.00</td>
+      <td>1.39</td>
+      <td>3.07</td>
+      <td>0.86</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.11</td>
+      <td>0.12</td>
+      <td>1.97</td>
+      <td>0.10</td>
+      <td>63.52</td>
+      <td>12.57</td>
+      <td>0.62</td>
+      <td>38.48</td>
+      <td>50.80</td>
+    </tr>
+    <tr>
+      <td>Joseph Low</td>
+      <td>32</td>
+      <td>WAL</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>11.25</td>
+      <td>0.00</td>
+      <td>11.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>33.75</td>
+      <td>11.25</td>
+      <td>11.25</td>
+      <td>0.00</td>
+      <td>22.50</td>
+    </tr>
+    <tr>
+      <td>Kal Naismith</td>
+      <td>4</td>
+      <td>SCO</td>
+      <td>18.70</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.64</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.37</td>
+      <td>2.46</td>
+      <td>1.23</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.10</td>
+      <td>0.09</td>
+      <td>2.09</td>
+      <td>0.32</td>
+      <td>78.07</td>
+      <td>8.07</td>
+      <td>0.70</td>
+      <td>45.99</td>
+      <td>67.11</td>
+    </tr>
+    <tr>
+      <td>Kane Wilson</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>0.86</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.17</td>
+      <td>0.00</td>
+      <td>4.68</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.47</td>
+      <td>0.23</td>
+      <td>3.51</td>
+      <td>0.00</td>
+      <td>79.48</td>
+      <td>35.06</td>
+      <td>3.51</td>
+      <td>38.57</td>
+      <td>58.44</td>
+    </tr>
+    <tr>
+      <td>Mark Sykes</td>
+      <td>17</td>
+      <td>IRL</td>
+      <td>23.00</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.96</td>
+      <td>0.43</td>
+      <td>0.13</td>
+      <td>0.04</td>
+      <td>0.74</td>
+      <td>2.00</td>
+      <td>1.61</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>2.09</td>
+      <td>0.17</td>
+      <td>53.57</td>
+      <td>19.91</td>
+      <td>2.65</td>
+      <td>28.48</td>
+      <td>42.17</td>
+    </tr>
+    <tr>
+      <td>Matty James</td>
+      <td>6</td>
+      <td>ENG</td>
+      <td>25.01</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.20</td>
+      <td>0.04</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>2.16</td>
+      <td>0.40</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.06</td>
+      <td>1.32</td>
+      <td>0.12</td>
+      <td>47.30</td>
+      <td>8.28</td>
+      <td>0.32</td>
+      <td>32.07</td>
+      <td>40.58</td>
+    </tr>
+    <tr>
+      <td>Max O'Leary</td>
+      <td>12</td>
+      <td>IRL</td>
+      <td>22.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.14</td>
+      <td>0.05</td>
+      <td>39.86</td>
+      <td>0.05</td>
+      <td>0.00</td>
+      <td>22.32</td>
+      <td>37.68</td>
+    </tr>
+    <tr>
+      <td>Nahki Wells</td>
+      <td>21</td>
+      <td>BER</td>
+      <td>24.08</td>
+      <td>0.46</td>
+      <td>0.17</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>2.45</td>
+      <td>0.83</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>1.37</td>
+      <td>1.33</td>
+      <td>1.08</td>
+      <td>0.46</td>
+      <td>0.39</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>2.41</td>
+      <td>0.25</td>
+      <td>33.52</td>
+      <td>17.28</td>
+      <td>4.44</td>
+      <td>13.75</td>
+      <td>20.85</td>
+    </tr>
+    <tr>
+      <td>Robert Atkinson</td>
+      <td>5</td>
+      <td>ENG</td>
+      <td>23.79</td>
+      <td>0.17</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.63</td>
+      <td>0.25</td>
+      <td>0.13</td>
+      <td>0.00</td>
+      <td>0.80</td>
+      <td>1.77</td>
+      <td>1.05</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>0.02</td>
+      <td>0.01</td>
+      <td>0.97</td>
+      <td>0.17</td>
+      <td>56.33</td>
+      <td>5.04</td>
+      <td>1.30</td>
+      <td>34.30</td>
+      <td>45.78</td>
+    </tr>
+    <tr>
+      <td>Sam Bell</td>
+      <td>20</td>
+      <td>ENG</td>
+      <td>5.62</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.53</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.71</td>
+      <td>0.71</td>
+      <td>0.71</td>
+      <td>0.18</td>
+      <td>0.18</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.89</td>
+      <td>0.00</td>
+      <td>29.35</td>
+      <td>15.12</td>
+      <td>3.38</td>
+      <td>10.32</td>
+      <td>16.54</td>
+    </tr>
+    <tr>
+      <td>Timm Klose</td>
+      <td>25</td>
+      <td>SUI</td>
+      <td>5.39</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.37</td>
+      <td>0.00</td>
+      <td>0.37</td>
+      <td>0.00</td>
+      <td>1.67</td>
+      <td>1.67</td>
+      <td>0.56</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>1.11</td>
+      <td>0.00</td>
+      <td>57.71</td>
+      <td>2.78</td>
+      <td>2.04</td>
+      <td>31.92</td>
+      <td>44.35</td>
+    </tr>
+    <tr>
+      <td>Tommy Conway</td>
+      <td>15</td>
+      <td></td>
+      <td>16.66</td>
+      <td>0.36</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.98</td>
+      <td>0.90</td>
+      <td>0.06</td>
+      <td>0.00</td>
+      <td>1.20</td>
+      <td>0.78</td>
+      <td>1.32</td>
+      <td>0.32</td>
+      <td>0.32</td>
+      <td>0.16</td>
+      <td>0.13</td>
+      <td>2.10</td>
+      <td>0.24</td>
+      <td>25.22</td>
+      <td>15.37</td>
+      <td>4.14</td>
+      <td>12.91</td>
+      <td>16.57</td>
+    </tr>
+    <tr>
+      <td>Tomáš Kalas</td>
+      <td>22</td>
+      <td>CZE</td>
+      <td>3.23</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.31</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.31</td>
+      <td>0.62</td>
+      <td>1.24</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>65.88</td>
+      <td>1.55</td>
+      <td>0.62</td>
+      <td>48.25</td>
+      <td>56.91</td>
+    </tr>
+    <tr>
+      <td>Zak Vyner</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>33.61</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.30</td>
+      <td>0.06</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.74</td>
+      <td>1.40</td>
+      <td>0.12</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0.02</td>
+      <td>0.77</td>
+      <td>0.12</td>
+      <td>64.44</td>
+      <td>2.95</td>
+      <td>0.42</td>
+      <td>41.33</td>
+      <td>55.04</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="BristolCitylast5" data-table-id="BristolCitylast5" data-team-name="BristolCity">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(BristolCitylast5, 0)">Player</th>
+      <th onclick="sortTable(BristolCitylast5, 1)">#</th>
+      <th onclick="sortTable(BristolCitylast5, 2)">Nation</th>
+      <th onclick="sortTable(BristolCitylast5, 3)">Min</th>
+      <th onclick="sortTable(BristolCitylast5, 4)">Gls</th>
+      <th onclick="sortTable(BristolCitylast5, 5)">Ast</th>
+      <th onclick="sortTable(BristolCitylast5, 6)">PK</th>
+      <th onclick="sortTable(BristolCitylast5, 7)">PKatt</th>
+      <th onclick="sortTable(BristolCitylast5, 8)">Sh</th>
+      <th onclick="sortTable(BristolCitylast5, 9)">SoT</th>
+      <th onclick="sortTable(BristolCitylast5, 10)">CrdY</th>
+      <th onclick="sortTable(BristolCitylast5, 11)">CrdR</th>
+      <th onclick="sortTable(BristolCitylast5, 12)">Fls</th>
+      <th onclick="sortTable(BristolCitylast5, 13)">Tkl</th>
+      <th onclick="sortTable(BristolCitylast5, 14)">Fld</th>
+      <th onclick="sortTable(BristolCitylast5, 15)">xG</th>
+      <th onclick="sortTable(BristolCitylast5, 16)">npxG</th>
+      <th onclick="sortTable(BristolCitylast5, 17)">xAG</th>
+      <th onclick="sortTable(BristolCitylast5, 18)">xA</th>
+      <th onclick="sortTable(BristolCitylast5, 19)">SCA</th>
+      <th onclick="sortTable(BristolCitylast5, 20)">GCA</th>
+      <th onclick="sortTable(BristolCitylast5, 21)">Touches</th>
+      <th onclick="sortTable(BristolCitylast5, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(BristolCitylast5, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(BristolCitylast5, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(BristolCitylast5, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alex Scott</td>
+      <td>7</td>
+      <td>ENG</td>
+      <td>426</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>10</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.6</td>
+      <td>17</td>
+      <td>0</td>
+      <td>286</td>
+      <td>113</td>
+      <td>17</td>
+      <td>169</td>
+      <td>221</td>
+    </tr>
+    <tr>
+      <td>Andreas Weimann</td>
+      <td>14</td>
+      <td>AUT</td>
+      <td>188</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>79</td>
+      <td>36</td>
+      <td>7</td>
+      <td>38</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Andy King</td>
+      <td>10</td>
+      <td>WAL</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>67</td>
+      <td>14</td>
+      <td>1</td>
+      <td>44</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>Anis Mehmeti</td>
+      <td>11</td>
+      <td>ALB</td>
+      <td>355</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>0.5</td>
+      <td>1.1</td>
+      <td>12</td>
+      <td>2</td>
+      <td>153</td>
+      <td>92</td>
+      <td>22</td>
+      <td>60</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>Cameron Pring</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>23</td>
+      <td>8</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>386</td>
+      <td>58</td>
+      <td>7</td>
+      <td>208</td>
+      <td>313</td>
+    </tr>
+    <tr>
+      <td>George Tanner</td>
+      <td>19</td>
+      <td>ENG</td>
+      <td>380</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>295</td>
+      <td>73</td>
+      <td>6</td>
+      <td>202</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <td>Harry Cornick</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>157</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>79</td>
+      <td>33</td>
+      <td>4</td>
+      <td>31</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>Jay Dasilva</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>128</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>5</td>
+      <td>2</td>
+      <td>91</td>
+      <td>29</td>
+      <td>5</td>
+      <td>66</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>Joe Williams</td>
+      <td>8</td>
+      <td>ENG</td>
+      <td>290</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>0.5</td>
+      <td>6</td>
+      <td>0</td>
+      <td>236</td>
+      <td>31</td>
+      <td>0</td>
+      <td>156</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <td>Mark Sykes</td>
+      <td>17</td>
+      <td>IRL</td>
+      <td>360</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>7</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>9</td>
+      <td>0</td>
+      <td>213</td>
+      <td>100</td>
+      <td>24</td>
+      <td>113</td>
+      <td>164</td>
+    </tr>
+    <tr>
+      <td>Matty James</td>
+      <td>6</td>
+      <td>ENG</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>16</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>311</td>
+      <td>49</td>
+      <td>1</td>
+      <td>223</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <td>Max O'Leary</td>
+      <td>12</td>
+      <td>IRL</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>234</td>
+      <td>0</td>
+      <td>0</td>
+      <td>164</td>
+      <td>224</td>
+    </tr>
+    <tr>
+      <td>Nahki Wells</td>
+      <td>21</td>
+      <td>BER</td>
+      <td>173</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1.7</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71</td>
+      <td>42</td>
+      <td>6</td>
+      <td>33</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>Robert Atkinson</td>
+      <td>5</td>
+      <td>ENG</td>
+      <td>105</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>83</td>
+      <td>1</td>
+      <td>1</td>
+      <td>65</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Sam Bell</td>
+      <td>20</td>
+      <td>ENG</td>
+      <td>266</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>77</td>
+      <td>43</td>
+      <td>11</td>
+      <td>29</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>Tomáš Kalas</td>
+      <td>22</td>
+      <td>CZE</td>
+      <td>232</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>174</td>
+      <td>3</td>
+      <td>1</td>
+      <td>131</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <td>Zak Vyner</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>444</td>
+      <td>6</td>
+      <td>0</td>
+      <td>341</td>
+      <td>412</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="BristolCitylast10" data-table-id="BristolCitylast10" data-team-name="BristolCity">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(BristolCitylast10, 0)">Player</th>
+      <th onclick="sortTable(BristolCitylast10, 1)">#</th>
+      <th onclick="sortTable(BristolCitylast10, 2)">Nation</th>
+      <th onclick="sortTable(BristolCitylast10, 3)">Min</th>
+      <th onclick="sortTable(BristolCitylast10, 4)">Gls</th>
+      <th onclick="sortTable(BristolCitylast10, 5)">Ast</th>
+      <th onclick="sortTable(BristolCitylast10, 6)">PK</th>
+      <th onclick="sortTable(BristolCitylast10, 7)">PKatt</th>
+      <th onclick="sortTable(BristolCitylast10, 8)">Sh</th>
+      <th onclick="sortTable(BristolCitylast10, 9)">SoT</th>
+      <th onclick="sortTable(BristolCitylast10, 10)">CrdY</th>
+      <th onclick="sortTable(BristolCitylast10, 11)">CrdR</th>
+      <th onclick="sortTable(BristolCitylast10, 12)">Fls</th>
+      <th onclick="sortTable(BristolCitylast10, 13)">Tkl</th>
+      <th onclick="sortTable(BristolCitylast10, 14)">Fld</th>
+      <th onclick="sortTable(BristolCitylast10, 15)">xG</th>
+      <th onclick="sortTable(BristolCitylast10, 16)">npxG</th>
+      <th onclick="sortTable(BristolCitylast10, 17)">xAG</th>
+      <th onclick="sortTable(BristolCitylast10, 18)">xA</th>
+      <th onclick="sortTable(BristolCitylast10, 19)">SCA</th>
+      <th onclick="sortTable(BristolCitylast10, 20)">GCA</th>
+      <th onclick="sortTable(BristolCitylast10, 21)">Touches</th>
+      <th onclick="sortTable(BristolCitylast10, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(BristolCitylast10, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(BristolCitylast10, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(BristolCitylast10, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alex Scott</td>
+      <td>7</td>
+      <td>ENG</td>
+      <td>843</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>19</td>
+      <td>17</td>
+      <td>21</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.9</td>
+      <td>1.1</td>
+      <td>23</td>
+      <td>2</td>
+      <td>527</td>
+      <td>198</td>
+      <td>25</td>
+      <td>309</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>Andreas Weimann</td>
+      <td>14</td>
+      <td>AUT</td>
+      <td>290</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>116</td>
+      <td>52</td>
+      <td>11</td>
+      <td>50</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Andy King</td>
+      <td>10</td>
+      <td>WAL</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>67</td>
+      <td>14</td>
+      <td>1</td>
+      <td>44</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>Anis Mehmeti</td>
+      <td>11</td>
+      <td>ALB</td>
+      <td>386</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>0.5</td>
+      <td>1.1</td>
+      <td>12</td>
+      <td>2</td>
+      <td>161</td>
+      <td>95</td>
+      <td>23</td>
+      <td>63</td>
+      <td>91</td>
+    </tr>
+    <tr>
+      <td>Antoine Semenyo</td>
+      <td>11</td>
+      <td>GHA</td>
+      <td>270</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.5</td>
+      <td>1.1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>110</td>
+      <td>60</td>
+      <td>25</td>
+      <td>47</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Cameron Pring</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>900</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>10</td>
+      <td>33</td>
+      <td>14</td>
+      <td>0.8</td>
+      <td>0.8</td>
+      <td>1.9</td>
+      <td>1.7</td>
+      <td>11</td>
+      <td>5</td>
+      <td>714</td>
+      <td>150</td>
+      <td>20</td>
+      <td>376</td>
+      <td>560</td>
+    </tr>
+    <tr>
+      <td>George Tanner</td>
+      <td>19</td>
+      <td>ENG</td>
+      <td>807</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>15</td>
+      <td>7</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>6</td>
+      <td>0</td>
+      <td>566</td>
+      <td>149</td>
+      <td>7</td>
+      <td>351</td>
+      <td>497</td>
+    </tr>
+    <tr>
+      <td>Harry Cornick</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>211</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>104</td>
+      <td>44</td>
+      <td>5</td>
+      <td>37</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Jay Dasilva</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>135</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>5</td>
+      <td>2</td>
+      <td>94</td>
+      <td>29</td>
+      <td>5</td>
+      <td>67</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>Joe Williams</td>
+      <td>8</td>
+      <td>ENG</td>
+      <td>464</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>15</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.9</td>
+      <td>10</td>
+      <td>0</td>
+      <td>349</td>
+      <td>50</td>
+      <td>0</td>
+      <td>208</td>
+      <td>279</td>
+    </tr>
+    <tr>
+      <td>Kal Naismith</td>
+      <td>4</td>
+      <td>SCO</td>
+      <td>293</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.4</td>
+      <td>0.5</td>
+      <td>8</td>
+      <td>1</td>
+      <td>272</td>
+      <td>44</td>
+      <td>6</td>
+      <td>149</td>
+      <td>234</td>
+    </tr>
+    <tr>
+      <td>Mark Sykes</td>
+      <td>17</td>
+      <td>IRL</td>
+      <td>693</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>13</td>
+      <td>10</td>
+      <td>2.9</td>
+      <td>2.9</td>
+      <td>0.6</td>
+      <td>0.7</td>
+      <td>17</td>
+      <td>1</td>
+      <td>337</td>
+      <td>148</td>
+      <td>32</td>
+      <td>162</td>
+      <td>245</td>
+    </tr>
+    <tr>
+      <td>Matty James</td>
+      <td>6</td>
+      <td>ENG</td>
+      <td>900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>11</td>
+      <td>26</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.8</td>
+      <td>19</td>
+      <td>1</td>
+      <td>559</td>
+      <td>110</td>
+      <td>3</td>
+      <td>379</td>
+      <td>498</td>
+    </tr>
+    <tr>
+      <td>Max O'Leary</td>
+      <td>12</td>
+      <td>IRL</td>
+      <td>900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>409</td>
+      <td>0</td>
+      <td>0</td>
+      <td>242</td>
+      <td>388</td>
+    </tr>
+    <tr>
+      <td>Nahki Wells</td>
+      <td>21</td>
+      <td>BER</td>
+      <td>546</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>14</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>11</td>
+      <td>5</td>
+      <td>3.7</td>
+      <td>2.1</td>
+      <td>0.8</td>
+      <td>0.9</td>
+      <td>7</td>
+      <td>2</td>
+      <td>197</td>
+      <td>104</td>
+      <td>25</td>
+      <td>78</td>
+      <td>122</td>
+    </tr>
+    <tr>
+      <td>Robert Atkinson</td>
+      <td>5</td>
+      <td>ENG</td>
+      <td>555</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>14</td>
+      <td>6</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>366</td>
+      <td>16</td>
+      <td>7</td>
+      <td>236</td>
+      <td>298</td>
+    </tr>
+    <tr>
+      <td>Sam Bell</td>
+      <td>20</td>
+      <td>ENG</td>
+      <td>449</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>141</td>
+      <td>77</td>
+      <td>19</td>
+      <td>51</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>Tommy Conway</td>
+      <td>15</td>
+      <td></td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Tomáš Kalas</td>
+      <td>22</td>
+      <td>CZE</td>
+      <td>257</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>184</td>
+      <td>4</td>
+      <td>1</td>
+      <td>134</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>Zak Vyner</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>5</td>
+      <td>7</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>6</td>
+      <td>1</td>
+      <td>733</td>
+      <td>19</td>
+      <td>0</td>
+      <td>530</td>
+      <td>658</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="BlackpoolteamFull" data-table-id="BlackpoolteamFull" data-team-name="Blackpool">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(BlackpoolteamFull, 0)">Player</th>
+      <th onclick="sortTable(BlackpoolteamFull, 1)">#</th>
+      <th onclick="sortTable(BlackpoolteamFull, 2)">Nation</th>
+      <th onclick="sortTable(BlackpoolteamFull, 3)">Min</th>
+      <th onclick="sortTable(BlackpoolteamFull, 4)">Gls</th>
+      <th onclick="sortTable(BlackpoolteamFull, 5)">Ast</th>
+      <th onclick="sortTable(BlackpoolteamFull, 6)">PK</th>
+      <th onclick="sortTable(BlackpoolteamFull, 7)">PKatt</th>
+      <th onclick="sortTable(BlackpoolteamFull, 8)">Sh</th>
+      <th onclick="sortTable(BlackpoolteamFull, 9)">SoT</th>
+      <th onclick="sortTable(BlackpoolteamFull, 10)">CrdY</th>
+      <th onclick="sortTable(BlackpoolteamFull, 11)">CrdR</th>
+      <th onclick="sortTable(BlackpoolteamFull, 12)">Fls</th>
+      <th onclick="sortTable(BlackpoolteamFull, 13)">Tkl</th>
+      <th onclick="sortTable(BlackpoolteamFull, 14)">Fld</th>
+      <th onclick="sortTable(BlackpoolteamFull, 15)">xG</th>
+      <th onclick="sortTable(BlackpoolteamFull, 16)">npxG</th>
+      <th onclick="sortTable(BlackpoolteamFull, 17)">xAG</th>
+      <th onclick="sortTable(BlackpoolteamFull, 18)">xA</th>
+      <th onclick="sortTable(BlackpoolteamFull, 19)">SCA</th>
+      <th onclick="sortTable(BlackpoolteamFull, 20)">GCA</th>
+      <th onclick="sortTable(BlackpoolteamFull, 21)">Touches</th>
+      <th onclick="sortTable(BlackpoolteamFull, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(BlackpoolteamFull, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(BlackpoolteamFull, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(BlackpoolteamFull, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andy Lyons</td>
+      <td>24</td>
+      <td>IRL</td>
+      <td>494</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.4</td>
+      <td>7</td>
+      <td>0</td>
+      <td>225</td>
+      <td>84</td>
+      <td>13</td>
+      <td>99</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>CJ Hamilton</td>
+      <td>22</td>
+      <td>IRL</td>
+      <td>1092</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>26</td>
+      <td>12</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>2.1</td>
+      <td>0.8</td>
+      <td>23</td>
+      <td>5</td>
+      <td>487</td>
+      <td>236</td>
+      <td>40</td>
+      <td>155</td>
+      <td>313</td>
+    </tr>
+    <tr>
+      <td>Callum Connolly</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>2904</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>28</td>
+      <td>4</td>
+      <td>9</td>
+      <td>1</td>
+      <td>46</td>
+      <td>41</td>
+      <td>29</td>
+      <td>2.3</td>
+      <td>2.3</td>
+      <td>1.3</td>
+      <td>1.0</td>
+      <td>50</td>
+      <td>2</td>
+      <td>1519</td>
+      <td>310</td>
+      <td>50</td>
+      <td>775</td>
+      <td>1179</td>
+    </tr>
+    <tr>
+      <td>Callum Wright</td>
+      <td>24</td>
+      <td>ENG</td>
+      <td>428</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0.9</td>
+      <td>0.9</td>
+      <td>0.4</td>
+      <td>0.5</td>
+      <td>13</td>
+      <td>0</td>
+      <td>197</td>
+      <td>85</td>
+      <td>9</td>
+      <td>103</td>
+      <td>146</td>
+    </tr>
+    <tr>
+      <td>Charlie Goode</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>117</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>47</td>
+      <td>3</td>
+      <td>1</td>
+      <td>12</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>Charlie Patino</td>
+      <td>28</td>
+      <td>ENG</td>
+      <td>1809</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>4</td>
+      <td>8</td>
+      <td>1</td>
+      <td>36</td>
+      <td>46</td>
+      <td>41</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>1.1</td>
+      <td>1.0</td>
+      <td>45</td>
+      <td>3</td>
+      <td>1107</td>
+      <td>207</td>
+      <td>10</td>
+      <td>578</td>
+      <td>849</td>
+    </tr>
+    <tr>
+      <td>Chris Maxwell</td>
+      <td>1</td>
+      <td>WAL</td>
+      <td>1980</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>751</td>
+      <td>0</td>
+      <td>0</td>
+      <td>410</td>
+      <td>693</td>
+    </tr>
+    <tr>
+      <td>Curtis Nelson</td>
+      <td>31</td>
+      <td>ENG</td>
+      <td>544</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2</td>
+      <td>0.7</td>
+      <td>0.7</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>299</td>
+      <td>15</td>
+      <td>8</td>
+      <td>142</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <td>Daniel Grimshaw</td>
+      <td>32</td>
+      <td>ENG</td>
+      <td>1170</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>508</td>
+      <td>0</td>
+      <td>0</td>
+      <td>325</td>
+      <td>484</td>
+    </tr>
+    <tr>
+      <td>Dominic Thompson</td>
+      <td>23</td>
+      <td>ENG</td>
+      <td>1782</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>9</td>
+      <td>1</td>
+      <td>19</td>
+      <td>39</td>
+      <td>19</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.2</td>
+      <td>23</td>
+      <td>3</td>
+      <td>1216</td>
+      <td>201</td>
+      <td>9</td>
+      <td>611</td>
+      <td>1001</td>
+    </tr>
+    <tr>
+      <td>Gary Madine</td>
+      <td>14</td>
+      <td>ENG</td>
+      <td>1760</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>11</td>
+      <td>4</td>
+      <td>1</td>
+      <td>28</td>
+      <td>8</td>
+      <td>14</td>
+      <td>4.6</td>
+      <td>4.6</td>
+      <td>2.2</td>
+      <td>1.3</td>
+      <td>35</td>
+      <td>4</td>
+      <td>647</td>
+      <td>285</td>
+      <td>72</td>
+      <td>276</td>
+      <td>445</td>
+    </tr>
+    <tr>
+      <td>Grant Ward</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>160</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>81</td>
+      <td>19</td>
+      <td>2</td>
+      <td>45</td>
+      <td>71</td>
+    </tr>
+    <tr>
+      <td>Ian Carlo Poveda</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>802</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7</td>
+      <td>12</td>
+      <td>19</td>
+      <td>0.9</td>
+      <td>0.9</td>
+      <td>0.5</td>
+      <td>0.8</td>
+      <td>23</td>
+      <td>3</td>
+      <td>355</td>
+      <td>167</td>
+      <td>40</td>
+      <td>150</td>
+      <td>227</td>
+    </tr>
+    <tr>
+      <td>Jake Beesley</td>
+      <td>18</td>
+      <td>ENG</td>
+      <td>195</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>78</td>
+      <td>32</td>
+      <td>11</td>
+      <td>31</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <td>James Husband</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>1542</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>12</td>
+      <td>24</td>
+      <td>15</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>13</td>
+      <td>2</td>
+      <td>1016</td>
+      <td>161</td>
+      <td>12</td>
+      <td>567</td>
+      <td>853</td>
+    </tr>
+    <tr>
+      <td>Jerry Yates</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>2761</td>
+      <td>9</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>57</td>
+      <td>20</td>
+      <td>4</td>
+      <td>0</td>
+      <td>37</td>
+      <td>23</td>
+      <td>30</td>
+      <td>7.8</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>2.1</td>
+      <td>64</td>
+      <td>5</td>
+      <td>938</td>
+      <td>443</td>
+      <td>109</td>
+      <td>441</td>
+      <td>611</td>
+    </tr>
+    <tr>
+      <td>Jordan Gabriel</td>
+      <td>4</td>
+      <td>ENG</td>
+      <td>794</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>9</td>
+      <td>17</td>
+      <td>10</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>1.2</td>
+      <td>0.9</td>
+      <td>17</td>
+      <td>2</td>
+      <td>408</td>
+      <td>124</td>
+      <td>15</td>
+      <td>187</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <td>Jordan Thorniley</td>
+      <td>34</td>
+      <td>ENG</td>
+      <td>1632</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>16</td>
+      <td>26</td>
+      <td>13</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1.2</td>
+      <td>0.7</td>
+      <td>13</td>
+      <td>1</td>
+      <td>906</td>
+      <td>35</td>
+      <td>19</td>
+      <td>520</td>
+      <td>714</td>
+    </tr>
+    <tr>
+      <td>Josh Bowler</td>
+      <td>11</td>
+      <td>ENG</td>
+      <td>1148</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>38</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>10</td>
+      <td>16</td>
+      <td>2.4</td>
+      <td>2.4</td>
+      <td>0.5</td>
+      <td>1.1</td>
+      <td>42</td>
+      <td>4</td>
+      <td>369</td>
+      <td>201</td>
+      <td>50</td>
+      <td>145</td>
+      <td>216</td>
+    </tr>
+    <tr>
+      <td>Kenneth Dougall</td>
+      <td>12</td>
+      <td>AUS</td>
+      <td>2388</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>3</td>
+      <td>9</td>
+      <td>0</td>
+      <td>39</td>
+      <td>70</td>
+      <td>41</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>2.8</td>
+      <td>3.7</td>
+      <td>68</td>
+      <td>4</td>
+      <td>1250</td>
+      <td>280</td>
+      <td>24</td>
+      <td>679</td>
+      <td>993</td>
+    </tr>
+    <tr>
+      <td>Keshi Anderson</td>
+      <td>10</td>
+      <td>ENG</td>
+      <td>34</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>4</td>
+      <td>1</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Lewis Fiorini</td>
+      <td>8</td>
+      <td>SCO</td>
+      <td>357</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.4</td>
+      <td>0.1</td>
+      <td>11</td>
+      <td>1</td>
+      <td>193</td>
+      <td>42</td>
+      <td>3</td>
+      <td>104</td>
+      <td>157</td>
+    </tr>
+    <tr>
+      <td>Liam Bridcutt</td>
+      <td>35</td>
+      <td>SCO</td>
+      <td>182</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>95</td>
+      <td>12</td>
+      <td>1</td>
+      <td>52</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>Luke Garbutt</td>
+      <td>29</td>
+      <td>ENG</td>
+      <td>484</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>5</td>
+      <td>10</td>
+      <td>2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>10</td>
+      <td>0</td>
+      <td>329</td>
+      <td>79</td>
+      <td>3</td>
+      <td>195</td>
+      <td>277</td>
+    </tr>
+    <tr>
+      <td>Marvin Ekpiteta</td>
+      <td>21</td>
+      <td>ENG</td>
+      <td>2057</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2</td>
+      <td>21</td>
+      <td>30</td>
+      <td>17</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>0.5</td>
+      <td>0.7</td>
+      <td>19</td>
+      <td>0</td>
+      <td>1041</td>
+      <td>43</td>
+      <td>34</td>
+      <td>556</td>
+      <td>780</td>
+    </tr>
+    <tr>
+      <td>Matty Virtue</td>
+      <td>17</td>
+      <td>ENG</td>
+      <td>110</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>52</td>
+      <td>17</td>
+      <td>3</td>
+      <td>32</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>Morgan Rogers</td>
+      <td>25</td>
+      <td>ENG</td>
+      <td>342</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>7</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.6</td>
+      <td>8</td>
+      <td>0</td>
+      <td>194</td>
+      <td>82</td>
+      <td>13</td>
+      <td>61</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Rhys Williams</td>
+      <td>15</td>
+      <td>ENG</td>
+      <td>1156</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7</td>
+      <td>13</td>
+      <td>2</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>618</td>
+      <td>13</td>
+      <td>7</td>
+      <td>395</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <td>Shayne Lavery</td>
+      <td>19</td>
+      <td>NIR</td>
+      <td>1238</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>23</td>
+      <td>40</td>
+      <td>33</td>
+      <td>2.1</td>
+      <td>2.1</td>
+      <td>0.7</td>
+      <td>0.3</td>
+      <td>18</td>
+      <td>3</td>
+      <td>403</td>
+      <td>187</td>
+      <td>42</td>
+      <td>120</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <td>Sonny Carey</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>1938</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>36</td>
+      <td>8</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11</td>
+      <td>34</td>
+      <td>23</td>
+      <td>2.7</td>
+      <td>2.7</td>
+      <td>2.8</td>
+      <td>2.0</td>
+      <td>52</td>
+      <td>5</td>
+      <td>879</td>
+      <td>302</td>
+      <td>36</td>
+      <td>435</td>
+      <td>641</td>
+    </tr>
+    <tr>
+      <td>Theo Corbeanu</td>
+      <td>25</td>
+      <td>CAN</td>
+      <td>845</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>26</td>
+      <td>10</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>18</td>
+      <td>18</td>
+      <td>2.1</td>
+      <td>2.1</td>
+      <td>0.4</td>
+      <td>0.8</td>
+      <td>22</td>
+      <td>2</td>
+      <td>362</td>
+      <td>184</td>
+      <td>40</td>
+      <td>142</td>
+      <td>208</td>
+    </tr>
+    <tr>
+      <td>Tom Trybull</td>
+      <td>46</td>
+      <td>GER</td>
+      <td>182</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>7</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>81</td>
+      <td>11</td>
+      <td>0</td>
+      <td>46</td>
+      <td>58</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="Blackpoolper90" data-table-id="Blackpoolper90" data-team-name="Blackpool">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(Blackpoolper90, 0)">Player</th>
+      <th onclick="sortTable(Blackpoolper90, 1)">#</th>
+      <th onclick="sortTable(Blackpoolper90, 2)">Nation</th>
+      <th onclick="sortTable(Blackpoolper90, 3)">90s</th>
+      <th onclick="sortTable(Blackpoolper90, 4)">Gls</th>
+      <th onclick="sortTable(Blackpoolper90, 5)">Ast</th>
+      <th onclick="sortTable(Blackpoolper90, 6)">PK</th>
+      <th onclick="sortTable(Blackpoolper90, 7)">PKatt</th>
+      <th onclick="sortTable(Blackpoolper90, 8)">Sh</th>
+      <th onclick="sortTable(Blackpoolper90, 9)">SoT</th>
+      <th onclick="sortTable(Blackpoolper90, 10)">CrdY</th>
+      <th onclick="sortTable(Blackpoolper90, 11)">CrdR</th>
+      <th onclick="sortTable(Blackpoolper90, 12)">Fls</th>
+      <th onclick="sortTable(Blackpoolper90, 13)">Tkl</th>
+      <th onclick="sortTable(Blackpoolper90, 14)">Fld</th>
+      <th onclick="sortTable(Blackpoolper90, 15)">xG</th>
+      <th onclick="sortTable(Blackpoolper90, 16)">npxG</th>
+      <th onclick="sortTable(Blackpoolper90, 17)">xAG</th>
+      <th onclick="sortTable(Blackpoolper90, 18)">xA</th>
+      <th onclick="sortTable(Blackpoolper90, 19)">SCA</th>
+      <th onclick="sortTable(Blackpoolper90, 20)">GCA</th>
+      <th onclick="sortTable(Blackpoolper90, 21)">Touches</th>
+      <th onclick="sortTable(Blackpoolper90, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(Blackpoolper90, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(Blackpoolper90, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(Blackpoolper90, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andy Lyons</td>
+      <td>24</td>
+      <td>IRL</td>
+      <td>5.49</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.73</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.55</td>
+      <td>2.00</td>
+      <td>1.09</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.02</td>
+      <td>0.07</td>
+      <td>1.28</td>
+      <td>0.00</td>
+      <td>40.99</td>
+      <td>15.30</td>
+      <td>2.37</td>
+      <td>18.04</td>
+      <td>28.42</td>
+    </tr>
+    <tr>
+      <td>CJ Hamilton</td>
+      <td>22</td>
+      <td>IRL</td>
+      <td>12.13</td>
+      <td>0.08</td>
+      <td>0.25</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.91</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>2.14</td>
+      <td>0.99</td>
+      <td>0.09</td>
+      <td>0.09</td>
+      <td>0.17</td>
+      <td>0.07</td>
+      <td>1.90</td>
+      <td>0.41</td>
+      <td>40.14</td>
+      <td>19.45</td>
+      <td>3.30</td>
+      <td>12.77</td>
+      <td>25.80</td>
+    </tr>
+    <tr>
+      <td>Callum Connolly</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>32.27</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.87</td>
+      <td>0.12</td>
+      <td>0.28</td>
+      <td>0.03</td>
+      <td>1.43</td>
+      <td>1.27</td>
+      <td>0.90</td>
+      <td>0.07</td>
+      <td>0.07</td>
+      <td>0.04</td>
+      <td>0.03</td>
+      <td>1.55</td>
+      <td>0.06</td>
+      <td>47.08</td>
+      <td>9.61</td>
+      <td>1.55</td>
+      <td>24.02</td>
+      <td>36.54</td>
+    </tr>
+    <tr>
+      <td>Callum Wright</td>
+      <td>24</td>
+      <td>ENG</td>
+      <td>4.76</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2.31</td>
+      <td>0.63</td>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>1.26</td>
+      <td>2.10</td>
+      <td>0.00</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.08</td>
+      <td>0.11</td>
+      <td>2.73</td>
+      <td>0.00</td>
+      <td>41.43</td>
+      <td>17.87</td>
+      <td>1.89</td>
+      <td>21.66</td>
+      <td>30.70</td>
+    </tr>
+    <tr>
+      <td>Charlie Goode</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>1.30</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.77</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.31</td>
+      <td>2.31</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.54</td>
+      <td>0.00</td>
+      <td>36.15</td>
+      <td>2.31</td>
+      <td>0.77</td>
+      <td>9.23</td>
+      <td>22.31</td>
+    </tr>
+    <tr>
+      <td>Charlie Patino</td>
+      <td>28</td>
+      <td>ENG</td>
+      <td>20.10</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.55</td>
+      <td>0.20</td>
+      <td>0.40</td>
+      <td>0.05</td>
+      <td>1.79</td>
+      <td>2.29</td>
+      <td>2.04</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>2.24</td>
+      <td>0.15</td>
+      <td>55.07</td>
+      <td>10.30</td>
+      <td>0.50</td>
+      <td>28.76</td>
+      <td>42.24</td>
+    </tr>
+    <tr>
+      <td>Chris Maxwell</td>
+      <td>1</td>
+      <td>WAL</td>
+      <td>22.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.05</td>
+      <td>34.14</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>18.64</td>
+      <td>31.50</td>
+    </tr>
+    <tr>
+      <td>Curtis Nelson</td>
+      <td>31</td>
+      <td>ENG</td>
+      <td>6.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>0.99</td>
+      <td>0.33</td>
+      <td>0.12</td>
+      <td>0.12</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>0.00</td>
+      <td>49.47</td>
+      <td>2.48</td>
+      <td>1.32</td>
+      <td>23.49</td>
+      <td>36.73</td>
+    </tr>
+    <tr>
+      <td>Daniel Grimshaw</td>
+      <td>32</td>
+      <td>ENG</td>
+      <td>13.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>39.08</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>25.00</td>
+      <td>37.23</td>
+    </tr>
+    <tr>
+      <td>Dominic Thompson</td>
+      <td>23</td>
+      <td>ENG</td>
+      <td>19.80</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.45</td>
+      <td>0.05</td>
+      <td>0.96</td>
+      <td>1.97</td>
+      <td>0.96</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.06</td>
+      <td>1.16</td>
+      <td>0.15</td>
+      <td>61.41</td>
+      <td>10.15</td>
+      <td>0.45</td>
+      <td>30.86</td>
+      <td>50.56</td>
+    </tr>
+    <tr>
+      <td>Gary Madine</td>
+      <td>14</td>
+      <td>ENG</td>
+      <td>19.56</td>
+      <td>0.20</td>
+      <td>0.20</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2.05</td>
+      <td>0.56</td>
+      <td>0.20</td>
+      <td>0.05</td>
+      <td>1.43</td>
+      <td>0.41</td>
+      <td>0.72</td>
+      <td>0.24</td>
+      <td>0.24</td>
+      <td>0.11</td>
+      <td>0.07</td>
+      <td>1.79</td>
+      <td>0.20</td>
+      <td>33.09</td>
+      <td>14.57</td>
+      <td>3.68</td>
+      <td>14.11</td>
+      <td>22.76</td>
+    </tr>
+    <tr>
+      <td>Grant Ward</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>1.78</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.12</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.56</td>
+      <td>0.00</td>
+      <td>0.56</td>
+      <td>0.11</td>
+      <td>0.11</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.56</td>
+      <td>0.00</td>
+      <td>45.56</td>
+      <td>10.69</td>
+      <td>1.12</td>
+      <td>25.31</td>
+      <td>39.94</td>
+    </tr>
+    <tr>
+      <td>Ian Carlo Poveda</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>8.91</td>
+      <td>0.11</td>
+      <td>0.11</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.57</td>
+      <td>0.34</td>
+      <td>0.22</td>
+      <td>0.00</td>
+      <td>0.79</td>
+      <td>1.35</td>
+      <td>2.13</td>
+      <td>0.10</td>
+      <td>0.10</td>
+      <td>0.06</td>
+      <td>0.09</td>
+      <td>2.58</td>
+      <td>0.34</td>
+      <td>39.84</td>
+      <td>18.74</td>
+      <td>4.49</td>
+      <td>16.83</td>
+      <td>25.47</td>
+    </tr>
+    <tr>
+      <td>Jake Beesley</td>
+      <td>18</td>
+      <td>ENG</td>
+      <td>2.17</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.85</td>
+      <td>0.46</td>
+      <td>0.46</td>
+      <td>0.00</td>
+      <td>2.31</td>
+      <td>1.85</td>
+      <td>1.85</td>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.85</td>
+      <td>0.46</td>
+      <td>36.00</td>
+      <td>14.77</td>
+      <td>5.08</td>
+      <td>14.31</td>
+      <td>24.00</td>
+    </tr>
+    <tr>
+      <td>James Husband</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>17.13</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.12</td>
+      <td>0.18</td>
+      <td>0.00</td>
+      <td>0.70</td>
+      <td>1.40</td>
+      <td>0.88</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.02</td>
+      <td>0.02</td>
+      <td>0.76</td>
+      <td>0.12</td>
+      <td>59.30</td>
+      <td>9.40</td>
+      <td>0.70</td>
+      <td>33.09</td>
+      <td>49.79</td>
+    </tr>
+    <tr>
+      <td>Jerry Yates</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>30.68</td>
+      <td>0.29</td>
+      <td>0.13</td>
+      <td>0.0</td>
+      <td>0.03</td>
+      <td>1.86</td>
+      <td>0.65</td>
+      <td>0.13</td>
+      <td>0.00</td>
+      <td>1.21</td>
+      <td>0.75</td>
+      <td>0.98</td>
+      <td>0.25</td>
+      <td>0.23</td>
+      <td>0.10</td>
+      <td>0.07</td>
+      <td>2.09</td>
+      <td>0.16</td>
+      <td>30.58</td>
+      <td>14.44</td>
+      <td>3.55</td>
+      <td>14.38</td>
+      <td>19.92</td>
+    </tr>
+    <tr>
+      <td>Jordan Gabriel</td>
+      <td>4</td>
+      <td>ENG</td>
+      <td>8.82</td>
+      <td>0.00</td>
+      <td>0.11</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.57</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>1.02</td>
+      <td>1.93</td>
+      <td>1.13</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>0.14</td>
+      <td>0.10</td>
+      <td>1.93</td>
+      <td>0.23</td>
+      <td>46.25</td>
+      <td>14.06</td>
+      <td>1.70</td>
+      <td>21.20</td>
+      <td>34.91</td>
+    </tr>
+    <tr>
+      <td>Jordan Thorniley</td>
+      <td>34</td>
+      <td>ENG</td>
+      <td>18.13</td>
+      <td>0.00</td>
+      <td>0.06</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.66</td>
+      <td>0.06</td>
+      <td>0.17</td>
+      <td>0.06</td>
+      <td>0.88</td>
+      <td>1.43</td>
+      <td>0.72</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.07</td>
+      <td>0.04</td>
+      <td>0.72</td>
+      <td>0.06</td>
+      <td>49.96</td>
+      <td>1.93</td>
+      <td>1.05</td>
+      <td>28.68</td>
+      <td>39.38</td>
+    </tr>
+    <tr>
+      <td>Josh Bowler</td>
+      <td>11</td>
+      <td>ENG</td>
+      <td>12.76</td>
+      <td>0.24</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2.98</td>
+      <td>1.10</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.86</td>
+      <td>0.78</td>
+      <td>1.25</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.04</td>
+      <td>0.09</td>
+      <td>3.29</td>
+      <td>0.31</td>
+      <td>28.93</td>
+      <td>15.76</td>
+      <td>3.92</td>
+      <td>11.37</td>
+      <td>16.93</td>
+    </tr>
+    <tr>
+      <td>Kenneth Dougall</td>
+      <td>12</td>
+      <td>AUS</td>
+      <td>26.53</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.53</td>
+      <td>0.11</td>
+      <td>0.34</td>
+      <td>0.00</td>
+      <td>1.47</td>
+      <td>2.64</td>
+      <td>1.55</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.11</td>
+      <td>0.14</td>
+      <td>2.56</td>
+      <td>0.15</td>
+      <td>47.11</td>
+      <td>10.55</td>
+      <td>0.90</td>
+      <td>25.59</td>
+      <td>37.42</td>
+    </tr>
+    <tr>
+      <td>Keshi Anderson</td>
+      <td>10</td>
+      <td>ENG</td>
+      <td>0.38</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2.65</td>
+      <td>2.65</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.65</td>
+      <td>2.65</td>
+      <td>0.00</td>
+      <td>0.26</td>
+      <td>0.26</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>29.12</td>
+      <td>10.59</td>
+      <td>2.65</td>
+      <td>18.53</td>
+      <td>21.18</td>
+    </tr>
+    <tr>
+      <td>Lewis Fiorini</td>
+      <td>8</td>
+      <td>SCO</td>
+      <td>3.97</td>
+      <td>0.00</td>
+      <td>0.25</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.51</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.01</td>
+      <td>0.76</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.03</td>
+      <td>2.77</td>
+      <td>0.25</td>
+      <td>48.66</td>
+      <td>10.59</td>
+      <td>0.76</td>
+      <td>26.22</td>
+      <td>39.58</td>
+    </tr>
+    <tr>
+      <td>Liam Bridcutt</td>
+      <td>35</td>
+      <td>SCO</td>
+      <td>2.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>1.48</td>
+      <td>0.49</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.98</td>
+      <td>0.00</td>
+      <td>46.98</td>
+      <td>5.93</td>
+      <td>0.49</td>
+      <td>25.71</td>
+      <td>35.60</td>
+    </tr>
+    <tr>
+      <td>Luke Garbutt</td>
+      <td>29</td>
+      <td>ENG</td>
+      <td>5.38</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.12</td>
+      <td>0.19</td>
+      <td>0.19</td>
+      <td>0.00</td>
+      <td>0.93</td>
+      <td>1.86</td>
+      <td>0.37</td>
+      <td>0.04</td>
+      <td>0.04</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>1.86</td>
+      <td>0.00</td>
+      <td>61.18</td>
+      <td>14.69</td>
+      <td>0.56</td>
+      <td>36.26</td>
+      <td>51.51</td>
+    </tr>
+    <tr>
+      <td>Marvin Ekpiteta</td>
+      <td>21</td>
+      <td>ENG</td>
+      <td>22.86</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.39</td>
+      <td>0.13</td>
+      <td>0.22</td>
+      <td>0.09</td>
+      <td>0.92</td>
+      <td>1.31</td>
+      <td>0.74</td>
+      <td>0.06</td>
+      <td>0.06</td>
+      <td>0.02</td>
+      <td>0.03</td>
+      <td>0.83</td>
+      <td>0.00</td>
+      <td>45.55</td>
+      <td>1.88</td>
+      <td>1.49</td>
+      <td>24.33</td>
+      <td>34.13</td>
+    </tr>
+    <tr>
+      <td>Matty Virtue</td>
+      <td>17</td>
+      <td>ENG</td>
+      <td>1.22</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.82</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>2.45</td>
+      <td>3.27</td>
+      <td>2.45</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>1.64</td>
+      <td>0.00</td>
+      <td>42.55</td>
+      <td>13.91</td>
+      <td>2.45</td>
+      <td>26.18</td>
+      <td>34.36</td>
+    </tr>
+    <tr>
+      <td>Morgan Rogers</td>
+      <td>25</td>
+      <td>ENG</td>
+      <td>3.80</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.79</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.05</td>
+      <td>3.95</td>
+      <td>1.84</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.08</td>
+      <td>0.16</td>
+      <td>2.11</td>
+      <td>0.00</td>
+      <td>51.05</td>
+      <td>21.58</td>
+      <td>3.42</td>
+      <td>16.05</td>
+      <td>26.32</td>
+    </tr>
+    <tr>
+      <td>Rhys Williams</td>
+      <td>15</td>
+      <td>ENG</td>
+      <td>12.84</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.08</td>
+      <td>0.16</td>
+      <td>0.00</td>
+      <td>0.54</td>
+      <td>1.01</td>
+      <td>0.16</td>
+      <td>0.03</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.23</td>
+      <td>0.00</td>
+      <td>48.11</td>
+      <td>1.01</td>
+      <td>0.54</td>
+      <td>30.75</td>
+      <td>38.93</td>
+    </tr>
+    <tr>
+      <td>Shayne Lavery</td>
+      <td>19</td>
+      <td>NIR</td>
+      <td>13.76</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.09</td>
+      <td>0.29</td>
+      <td>0.15</td>
+      <td>0.07</td>
+      <td>1.67</td>
+      <td>2.91</td>
+      <td>2.40</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>0.05</td>
+      <td>0.02</td>
+      <td>1.31</td>
+      <td>0.22</td>
+      <td>29.30</td>
+      <td>13.59</td>
+      <td>3.05</td>
+      <td>8.72</td>
+      <td>14.47</td>
+    </tr>
+    <tr>
+      <td>Sonny Carey</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>21.53</td>
+      <td>0.14</td>
+      <td>0.05</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.67</td>
+      <td>0.37</td>
+      <td>0.05</td>
+      <td>0.05</td>
+      <td>0.51</td>
+      <td>1.58</td>
+      <td>1.07</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.13</td>
+      <td>0.09</td>
+      <td>2.41</td>
+      <td>0.23</td>
+      <td>40.82</td>
+      <td>14.02</td>
+      <td>1.67</td>
+      <td>20.20</td>
+      <td>29.77</td>
+    </tr>
+    <tr>
+      <td>Theo Corbeanu</td>
+      <td>25</td>
+      <td>CAN</td>
+      <td>9.39</td>
+      <td>0.32</td>
+      <td>0.11</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2.77</td>
+      <td>1.07</td>
+      <td>0.21</td>
+      <td>0.00</td>
+      <td>0.64</td>
+      <td>1.92</td>
+      <td>1.92</td>
+      <td>0.22</td>
+      <td>0.22</td>
+      <td>0.04</td>
+      <td>0.09</td>
+      <td>2.34</td>
+      <td>0.21</td>
+      <td>38.56</td>
+      <td>19.60</td>
+      <td>4.26</td>
+      <td>15.12</td>
+      <td>22.15</td>
+    </tr>
+    <tr>
+      <td>Tom Trybull</td>
+      <td>46</td>
+      <td>GER</td>
+      <td>2.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>3.46</td>
+      <td>0.99</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.99</td>
+      <td>0.00</td>
+      <td>40.05</td>
+      <td>5.44</td>
+      <td>0.00</td>
+      <td>22.75</td>
+      <td>28.68</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="Blackpoollast5" data-table-id="Blackpoollast5" data-team-name="Blackpool">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(Blackpoollast5, 0)">Player</th>
+      <th onclick="sortTable(Blackpoollast5, 1)">#</th>
+      <th onclick="sortTable(Blackpoollast5, 2)">Nation</th>
+      <th onclick="sortTable(Blackpoollast5, 3)">Min</th>
+      <th onclick="sortTable(Blackpoollast5, 4)">Gls</th>
+      <th onclick="sortTable(Blackpoollast5, 5)">Ast</th>
+      <th onclick="sortTable(Blackpoollast5, 6)">PK</th>
+      <th onclick="sortTable(Blackpoollast5, 7)">PKatt</th>
+      <th onclick="sortTable(Blackpoollast5, 8)">Sh</th>
+      <th onclick="sortTable(Blackpoollast5, 9)">SoT</th>
+      <th onclick="sortTable(Blackpoollast5, 10)">CrdY</th>
+      <th onclick="sortTable(Blackpoollast5, 11)">CrdR</th>
+      <th onclick="sortTable(Blackpoollast5, 12)">Fls</th>
+      <th onclick="sortTable(Blackpoollast5, 13)">Tkl</th>
+      <th onclick="sortTable(Blackpoollast5, 14)">Fld</th>
+      <th onclick="sortTable(Blackpoollast5, 15)">xG</th>
+      <th onclick="sortTable(Blackpoollast5, 16)">npxG</th>
+      <th onclick="sortTable(Blackpoollast5, 17)">xAG</th>
+      <th onclick="sortTable(Blackpoollast5, 18)">xA</th>
+      <th onclick="sortTable(Blackpoollast5, 19)">SCA</th>
+      <th onclick="sortTable(Blackpoollast5, 20)">GCA</th>
+      <th onclick="sortTable(Blackpoollast5, 21)">Touches</th>
+      <th onclick="sortTable(Blackpoollast5, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(Blackpoollast5, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(Blackpoollast5, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(Blackpoollast5, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andy Lyons</td>
+      <td>24</td>
+      <td>IRL</td>
+      <td>242</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>7</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>96</td>
+      <td>33</td>
+      <td>4</td>
+      <td>47</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>CJ Hamilton</td>
+      <td>22</td>
+      <td>IRL</td>
+      <td>148</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>56</td>
+      <td>25</td>
+      <td>4</td>
+      <td>15</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>Callum Connolly</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>7</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>225</td>
+      <td>17</td>
+      <td>6</td>
+      <td>112</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>Charlie Patino</td>
+      <td>28</td>
+      <td>ENG</td>
+      <td>146</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>83</td>
+      <td>8</td>
+      <td>0</td>
+      <td>52</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>Chris Maxwell</td>
+      <td>1</td>
+      <td>WAL</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>180</td>
+      <td>0</td>
+      <td>0</td>
+      <td>76</td>
+      <td>164</td>
+    </tr>
+    <tr>
+      <td>Curtis Nelson</td>
+      <td>31</td>
+      <td>ENG</td>
+      <td>364</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>198</td>
+      <td>8</td>
+      <td>3</td>
+      <td>111</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <td>Dominic Thompson</td>
+      <td>23</td>
+      <td>ENG</td>
+      <td>212</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>137</td>
+      <td>23</td>
+      <td>1</td>
+      <td>49</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <td>Gary Madine</td>
+      <td>14</td>
+      <td>ENG</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>26</td>
+      <td>15</td>
+      <td>3</td>
+      <td>9</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Ian Carlo Poveda</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>249</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>99</td>
+      <td>49</td>
+      <td>14</td>
+      <td>45</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>James Husband</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>266</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>141</td>
+      <td>26</td>
+      <td>3</td>
+      <td>81</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <td>Jerry Yates</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>294</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>2</td>
+      <td>5</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.8</td>
+      <td>0.2</td>
+      <td>6</td>
+      <td>1</td>
+      <td>78</td>
+      <td>36</td>
+      <td>5</td>
+      <td>35</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>Jordan Gabriel</td>
+      <td>4</td>
+      <td>ENG</td>
+      <td>212</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>99</td>
+      <td>19</td>
+      <td>1</td>
+      <td>44</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>Jordan Thorniley</td>
+      <td>34</td>
+      <td>ENG</td>
+      <td>266</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>122</td>
+      <td>6</td>
+      <td>5</td>
+      <td>72</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>Josh Bowler</td>
+      <td>11</td>
+      <td>ENG</td>
+      <td>256</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.4</td>
+      <td>10</td>
+      <td>1</td>
+      <td>92</td>
+      <td>43</td>
+      <td>7</td>
+      <td>41</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>Kenneth Dougall</td>
+      <td>12</td>
+      <td>AUS</td>
+      <td>330</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7</td>
+      <td>6</td>
+      <td>8</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>5</td>
+      <td>0</td>
+      <td>134</td>
+      <td>28</td>
+      <td>3</td>
+      <td>69</td>
+      <td>113</td>
+    </tr>
+    <tr>
+      <td>Lewis Fiorini</td>
+      <td>8</td>
+      <td>SCO</td>
+      <td>45</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Luke Garbutt</td>
+      <td>29</td>
+      <td>ENG</td>
+      <td>197</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>102</td>
+      <td>28</td>
+      <td>2</td>
+      <td>61</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>Morgan Rogers</td>
+      <td>25</td>
+      <td>ENG</td>
+      <td>178</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>3</td>
+      <td>0</td>
+      <td>92</td>
+      <td>49</td>
+      <td>9</td>
+      <td>30</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>Shayne Lavery</td>
+      <td>19</td>
+      <td>NIR</td>
+      <td>75</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>8</td>
+      <td>0</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Sonny Carey</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>446</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>9</td>
+      <td>10</td>
+      <td>0.8</td>
+      <td>0.8</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>185</td>
+      <td>50</td>
+      <td>9</td>
+      <td>86</td>
+      <td>129</td>
+    </tr>
+  </tbody>
+</table>
+                
+                <table border="1" class="dataframe" id="Blackpoollast10" data-table-id="Blackpoollast10" data-team-name="Blackpool">
+  <thead>
+    <tr style="text-align: right;">
+      <th onclick="sortTable(Blackpoollast10, 0)">Player</th>
+      <th onclick="sortTable(Blackpoollast10, 1)">#</th>
+      <th onclick="sortTable(Blackpoollast10, 2)">Nation</th>
+      <th onclick="sortTable(Blackpoollast10, 3)">Min</th>
+      <th onclick="sortTable(Blackpoollast10, 4)">Gls</th>
+      <th onclick="sortTable(Blackpoollast10, 5)">Ast</th>
+      <th onclick="sortTable(Blackpoollast10, 6)">PK</th>
+      <th onclick="sortTable(Blackpoollast10, 7)">PKatt</th>
+      <th onclick="sortTable(Blackpoollast10, 8)">Sh</th>
+      <th onclick="sortTable(Blackpoollast10, 9)">SoT</th>
+      <th onclick="sortTable(Blackpoollast10, 10)">CrdY</th>
+      <th onclick="sortTable(Blackpoollast10, 11)">CrdR</th>
+      <th onclick="sortTable(Blackpoollast10, 12)">Fls</th>
+      <th onclick="sortTable(Blackpoollast10, 13)">Tkl</th>
+      <th onclick="sortTable(Blackpoollast10, 14)">Fld</th>
+      <th onclick="sortTable(Blackpoollast10, 15)">xG</th>
+      <th onclick="sortTable(Blackpoollast10, 16)">npxG</th>
+      <th onclick="sortTable(Blackpoollast10, 17)">xAG</th>
+      <th onclick="sortTable(Blackpoollast10, 18)">xA</th>
+      <th onclick="sortTable(Blackpoollast10, 19)">SCA</th>
+      <th onclick="sortTable(Blackpoollast10, 20)">GCA</th>
+      <th onclick="sortTable(Blackpoollast10, 21)">Touches</th>
+      <th onclick="sortTable(Blackpoollast10, 22)">Tch_Att 3rd</th>
+      <th onclick="sortTable(Blackpoollast10, 23)">Tch_Att Pen</th>
+      <th onclick="sortTable(Blackpoollast10, 24)">Pass_Cmp</th>
+      <th onclick="sortTable(Blackpoollast10, 25)">Pass_Att</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Andy Lyons</td>
+      <td>24</td>
+      <td>IRL</td>
+      <td>494</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.4</td>
+      <td>7</td>
+      <td>0</td>
+      <td>225</td>
+      <td>84</td>
+      <td>13</td>
+      <td>99</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>CJ Hamilton</td>
+      <td>22</td>
+      <td>IRL</td>
+      <td>533</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1.3</td>
+      <td>0.3</td>
+      <td>8</td>
+      <td>1</td>
+      <td>213</td>
+      <td>104</td>
+      <td>17</td>
+      <td>55</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>Callum Connolly</td>
+      <td>2</td>
+      <td>ENG</td>
+      <td>890</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>12</td>
+      <td>12</td>
+      <td>4</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>6</td>
+      <td>0</td>
+      <td>425</td>
+      <td>58</td>
+      <td>11</td>
+      <td>197</td>
+      <td>314</td>
+    </tr>
+    <tr>
+      <td>Callum Wright</td>
+      <td>24</td>
+      <td>ENG</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Charlie Goode</td>
+      <td>27</td>
+      <td>ENG</td>
+      <td>117</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>47</td>
+      <td>3</td>
+      <td>1</td>
+      <td>12</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>Charlie Patino</td>
+      <td>28</td>
+      <td>ENG</td>
+      <td>442</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>12</td>
+      <td>16</td>
+      <td>4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>7</td>
+      <td>0</td>
+      <td>239</td>
+      <td>33</td>
+      <td>2</td>
+      <td>122</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <td>Chris Maxwell</td>
+      <td>1</td>
+      <td>WAL</td>
+      <td>900</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>347</td>
+      <td>0</td>
+      <td>0</td>
+      <td>155</td>
+      <td>318</td>
+    </tr>
+    <tr>
+      <td>Curtis Nelson</td>
+      <td>31</td>
+      <td>ENG</td>
+      <td>544</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2</td>
+      <td>0.7</td>
+      <td>0.7</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>299</td>
+      <td>15</td>
+      <td>8</td>
+      <td>142</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <td>Dominic Thompson</td>
+      <td>23</td>
+      <td>ENG</td>
+      <td>212</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>137</td>
+      <td>23</td>
+      <td>1</td>
+      <td>49</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <td>Gary Madine</td>
+      <td>14</td>
+      <td>ENG</td>
+      <td>334</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7</td>
+      <td>0</td>
+      <td>127</td>
+      <td>52</td>
+      <td>11</td>
+      <td>43</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Ian Carlo Poveda</td>
+      <td>26</td>
+      <td>ENG</td>
+      <td>347</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>8</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>8</td>
+      <td>0</td>
+      <td>149</td>
+      <td>73</td>
+      <td>14</td>
+      <td>64</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Jake Beesley</td>
+      <td>18</td>
+      <td>ENG</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>James Husband</td>
+      <td>3</td>
+      <td>ENG</td>
+      <td>626</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>8</td>
+      <td>11</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>381</td>
+      <td>84</td>
+      <td>6</td>
+      <td>197</td>
+      <td>314</td>
+    </tr>
+    <tr>
+      <td>Jerry Yates</td>
+      <td>9</td>
+      <td>ENG</td>
+      <td>590</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10</td>
+      <td>2</td>
+      <td>8</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>1.1</td>
+      <td>0.3</td>
+      <td>13</td>
+      <td>2</td>
+      <td>189</td>
+      <td>91</td>
+      <td>23</td>
+      <td>77</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <td>Jordan Gabriel</td>
+      <td>4</td>
+      <td>ENG</td>
+      <td>212</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>99</td>
+      <td>19</td>
+      <td>1</td>
+      <td>44</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>Jordan Thorniley</td>
+      <td>34</td>
+      <td>ENG</td>
+      <td>536</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>6</td>
+      <td>5</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>263</td>
+      <td>10</td>
+      <td>8</td>
+      <td>141</td>
+      <td>202</td>
+    </tr>
+    <tr>
+      <td>Josh Bowler</td>
+      <td>11</td>
+      <td>ENG</td>
+      <td>525</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>5</td>
+      <td>6</td>
+      <td>0.7</td>
+      <td>0.7</td>
+      <td>0.1</td>
+      <td>0.5</td>
+      <td>16</td>
+      <td>2</td>
+      <td>181</td>
+      <td>91</td>
+      <td>21</td>
+      <td>74</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>Kenneth Dougall</td>
+      <td>12</td>
+      <td>AUS</td>
+      <td>552</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>9</td>
+      <td>19</td>
+      <td>12</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.3</td>
+      <td>0.4</td>
+      <td>12</td>
+      <td>1</td>
+      <td>260</td>
+      <td>69</td>
+      <td>8</td>
+      <td>125</td>
+      <td>205</td>
+    </tr>
+    <tr>
+      <td>Lewis Fiorini</td>
+      <td>8</td>
+      <td>SCO</td>
+      <td>45</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Luke Garbutt</td>
+      <td>29</td>
+      <td>ENG</td>
+      <td>197</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>102</td>
+      <td>28</td>
+      <td>2</td>
+      <td>61</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>Marvin Ekpiteta</td>
+      <td>21</td>
+      <td>ENG</td>
+      <td>164</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>61</td>
+      <td>5</td>
+      <td>3</td>
+      <td>31</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>Morgan Rogers</td>
+      <td>25</td>
+      <td>ENG</td>
+      <td>342</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>15</td>
+      <td>7</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.6</td>
+      <td>8</td>
+      <td>0</td>
+      <td>194</td>
+      <td>82</td>
+      <td>13</td>
+      <td>61</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Rhys Williams</td>
+      <td>15</td>
+      <td>ENG</td>
+      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>19</td>
+      <td>2</td>
+      <td>0</td>
+      <td>16</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>Shayne Lavery</td>
+      <td>19</td>
+      <td>NIR</td>
+      <td>207</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>8</td>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>51</td>
+      <td>33</td>
+      <td>4</td>
+      <td>11</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>Sonny Carey</td>
+      <td>16</td>
+      <td>ENG</td>
+      <td>792</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>17</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>18</td>
+      <td>13</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>14</td>
+      <td>2</td>
+      <td>361</td>
+      <td>109</td>
+      <td>15</td>
+      <td>166</td>
+      <td>263</td>
+    </tr>
+    <tr>
+      <td>Tom Trybull</td>
+      <td>46</td>
+      <td>GER</td>
+      <td>182</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>7</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>81</td>
+      <td>11</td>
+      <td>0</td>
+      <td>46</td>
+      <td>58</td>
+    </tr>
+  </tbody>
+</table>
+                
+
+</div>
+
+<script>
+	
+		 function showTable(tableId) {
+			// First, hide all of the tables
+			var table_list1 = document.querySelectorAll('table');
+			for (var i = 0; i < table_list1.length; i++) {
+			  table_list1[i].style.display = 'none';
+			}
+
+			// Then, show the selected table
+			document.querySelector(`table[data-table-id='${tableId}']`).style.display = 'block';
+		  }
+
+		  var table_list2 = document.querySelectorAll('table');
+			for (var i = 0; i < table_list2.length; i++) {
+			if (i === 0) {
+			  // Show the first table
+			  table_list2[i].style.display = 'block';
+			} else {
+			  // Hide all other tables
+			  table_list2[i].style.display = 'none';
+			  }
+			  }
+			
+			document.getElementById('table-filter').addEventListener('change', function() {
+			  // Get the selected table id from the value attribute of the option element
+			  var tableId = this.value;
+			  showTable(tableId);
+			  });
+</script>
+
+<script>
+	function freezePanes(table) {
+	  if (!table) {
+		return;
+	  }
+
+	  var userAgent = navigator.userAgent;
+	  var isModernBrowser = userAgent.indexOf('Edge') > -1 || userAgent.indexOf('Chrome') > -1 || userAgent.indexOf('Safari') > -1;
+
+	  if (isModernBrowser) {
+		table.classList.add('modern-browser');
+	  } else {
+		table.classList.add('old-browser');
+	  }
+	}
+
+	var tables_for_panes = document.querySelectorAll('table');
+
+	tables_for_panes.forEach(function(table) {
+	  freezePanes(table);
+	});
+</script>
+
+<style>
+
+   table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+	position: relative;
+    width: auto;
+	table-layout: auto;
+	overflow: auto;
+	height: auto;
+  }
+
+  table.modern-browser td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  table.modern-browser th {
+    position: sticky;
+	top: 0;
+	z-index: 10;
+	text-align: left;
+    padding: 8px;
+	background-color: #0C3D71; color: white;
+}
+
+  table.modern-browser th:nth-child(1),
+  table.modern-browser td:nth-child(1) {
+    position: sticky;
+	top: 0;
+	left: 0;
+	min-width: 10px;
+	z-index: 10;
+	text-align: left;
+    padding: 8px;
+	background-color: #0C3D71;
+	color: white;
+}
+
+  table.modern-browser th:nth-child(n+2),
+table.modern-browser td:nth-child(n+2) {
+position: relative;
+left: auto;
+z-index: 1;
+}
+  
+  table.modern-browser tr:nth-child(even) {background-color: #F8F8FF;}
+  
+  table.modern-browser tr:nth-child(odd) {background-color: #D0D3D7;}
+
+table.old-browser {
+  position: relative;
+}
+
+table.old-browser th,
+table.old-browser td {
+  position: relative;
+}
+
+table.old-browser th:nth-of-type(-n+3),
+table.old-browser td:nth-of-type(-n+3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+h1 {color:#F8F8FF; text-align:left; font-family:sans-serif; font-size: 28px;}
+
+</style>
+
+</body>
+</html>
